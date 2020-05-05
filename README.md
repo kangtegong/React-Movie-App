@@ -28,3 +28,22 @@ src/
 - make Header component
 - redirect (default URL setting)
 - switch (redner only one Route component)
+
+### 4. Component Styling-1 : CSS Modules
+
+- put APPNAME.js APPNAME.module.css in same dir
+- APPNAME.module.css (APPNAME.module.scss)
+
+```
+.navList {
+    display: flex;
+}
+```
+
+- APPNAME.js
+
+```
+import styles from "./APPNAME.module.css"
+
+<tag className={styles.navList}>
+```
