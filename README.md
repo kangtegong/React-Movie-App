@@ -6,7 +6,7 @@
  - .env 
  - prop-types install : `yarn add prop-types`
 
-### 2. Routes Settings
+### 2. Routes Settings-1
 
 ```
 src/
@@ -22,3 +22,9 @@ src/
  - App.js
  - Router.js
  - Home.js, TV.js, Detail.js, Search.js
+
+### 3. Routes Settings-2
+
+- make Header component
+- redirect (default URL setting)
+- switch (redner only one Route component)
