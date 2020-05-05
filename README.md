@@ -83,3 +83,11 @@ const Item = styled.li``;
 - styled(Link)
 
 ![](https://user-images.githubusercontent.com/47781146/81042231-a16d2e80-8eea-11ea-874f-1d9b77ddd384.png)
+
+### 6. Make Global Style
+
+styled component : Local  
+styled-reset : Reset CSS for styled-components
+
+- installation : `yarn add styled-reset`
+- GlobalStyles.js : createGlobalStyles (from styled-components) & reset CSS (from styled-reset)
