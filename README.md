@@ -226,3 +226,13 @@ axios({
 ```
 
 > stay on the version 0.18.0 of Axios `yarn add axios@0.18.0` 
+
+### 8-2, 8-3 Apply API into project
+
+- [x] Now playing (Movie)
+- [x] Upcoming (Movie)
+- [x] Top Rated (TV)
+- [x] Popular (TV, X)
+- [x] Airing Today (TV)
+- [ ] TV Show Detail
+- [ ] Movie Detail
