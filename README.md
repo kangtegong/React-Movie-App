@@ -234,5 +234,28 @@ axios({
 - [x] Top Rated (TV)
 - [x] Popular (TV, X)
 - [x] Airing Today (TV)
-- [ ] TV Show Detail
-- [ ] Movie Detail
+- [x] TV Show Detail
+- [x] Movie Detail
+- [x] Search (Movie, TV)
+
+```
+export const moviesApi = {
+  nowPlaying: () => api.get("movie/now_playing"),
+  upcoming: () => api.get("movie/upcoming"),
+  popular: () => api.get("movie/popular"),
+  
+  movieDetail: id =>
+    api.get(`movie/${id}`, {
+      params: {
+        append_to_response: "videos"
+      }
+    }),
+
+  search: term =>
+    api.get("search/movie", {
+      params: {
+        query: encodeURIComponent(term)
+      }
+    })
+};
+```
