@@ -183,6 +183,46 @@ const HeaderComponent = ({location: {pathname}}) => (
 ));
 
 export default withRouter(HeaderCompoent)
+```
 
+### 8. Get Movie Data (API from themoviedb.org)
+
+  // https://developers.themoviedb.org/3/getting-started/introduction
+
+  what we wanna get
 
 ```
+- Now playing (Movie)
+- Upcoming (Movie)
+- Top Rated (TV, Movie)
+- Popular (TV, Movie)
+- Airing Today (TV)
+```
+
+- yarn add axios [link](https://github.com/axios/axios)
+
+> good thing about axios: we can configure(set) the instance of axios
+
+```
+// Send a POST request
+axios({
+  method: 'post',
+  url: '/user/12345',
+  data: {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  }
+});
+
+// GET request for remote image in node.js
+axios({
+  method: 'get',
+  url: 'http://bit.ly/2mTM3nY',
+  responseType: 'stream'
+})
+  .then(function (response) {
+    response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  });
+```
+
+> stay on the version 0.18.0 of Axios `yarn add axios@0.18.0` 
