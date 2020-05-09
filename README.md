@@ -275,3 +275,37 @@ componenet_directory/
   component_presenter.js
   index.js (for container export)
 ```
+
+## 10. render api info into container 
+
+```
+  async componentDidMount() {
+    try {
+      
+      const {
+        data: { results: topRated }
+      } = await tvApi.topRated();
+      
+      const {
+        data: { results: popular }
+      } = await tvApi.popular();
+      
+      const {
+        data: { results: airingToday }
+      } = await tvApi.airingToday();
+      
+      this.setState({ topRated, popular, airingToday });
+    
+    } 
+    
+    catch {
+      this.setState({
+        error: "Can't find TV information."
+      });
+    } 
+    
+    finally {
+      this.setState({ loading: false });
+    }
+  }
+```
