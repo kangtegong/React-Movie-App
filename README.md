@@ -259,3 +259,19 @@ export const moviesApi = {
     })
 };
 ```
+
+### 9-1. Home Container
+
+React Componenet Codeing 
+
+**container - presenter paattern**
+
+- container : [Data] data state get api logic
+- presenter : [styles] show those data state(X) class(X) api(X)
+ 
+```
+componenet_directory/
+  component_container.js
+  component_presenter.js
+  index.js (for container export)
+```
