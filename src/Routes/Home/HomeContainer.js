@@ -3,7 +3,7 @@ import HomePresenter from "./HomePresenter";
 
 export default class extends React.Component{
     
-    //state
+    //state : derived from api
     state = {
         nowPlaying: null,
         upComing: null,

@@ -260,7 +260,7 @@ export const moviesApi = {
 };
 ```
 
-### 9-1. Home Container
+### 9. Container
 
 React Componenet Codeing 
 
