@@ -323,3 +323,57 @@ Search Container - logics
  ### 12. Create Detail Routes
 
  `<Route path="/movie/:id" component={Detail} />`
+
+### 13-1. DetailContainer
+
+`src/Compoenet/Header.js`를 꾸밀 때는 `withRouter`를 이욯애서 현재의 위치를 알려주었다. 하지만
+이런 작업들을 Detail에 해 줄 필요는 없다. 왜냐하면 디폴트로 react-router가 모든 정보를 Route에게 주기 때문이다.
+
+Header는 `Route`가 아니기 때문에 Router에서 location 정보를 받을 수 없다.
+그래서 `withRouter`를 사용해서 location 정보를 받는 것이다.
+
+하지만 나머지 Search, TV, movie Detail..은 `Route`이다.
+디폴트로 Router는 모든 Route들에게 props를 전달해준다.
+
+> 애초에 라우터 컴포넌트가 아닌 컴포넌트에게 라우팅 정보를 주고 싶을 때 withRouter를 쓰는 것이다.
+
+테스트해보자.
+
+DetailContainer.js/
+```
+  render() {
+    console.log(this.props); // 여기서 실제로 Routing props를 받는다는 걸 알 수 있다.
+    const { result, error, loading } = this.state;
+    return <DetailPresenter result={result} error={error} loading={loading} />;
+  }
+```
+그러면 header가 받은 props와 동일한 props들을 받는다
+
+`{match: {...}, location: {...}, history: {...}, staticContext: undefined}`
+
+1. 우리가 /movie에 있는지, /show에 있는지 알아내야 한다
+2. 어떤 숫자가 url id에 있는지 알아내야 함 : 
+```
+  - match: 
+      params: {id: "121212"}
+``` 
+
+3. 잘못된 url 방지 : id에 부여된 값이 숫자인지 아닌지 판단해야 함
+
+router props로부터 push, match.params.id 받아와서
+```
+const {
+  match: {
+    params: { id }
+  },
+  history: { push }
+} = this.props;
+```
+
+url의 id값이 숫지인지 문자인지 판단 후 숫자가 아니라면 /로 이동
+```
+const parsedId = parseInt(id);
+if (isNaN(parsedId)) {
+  return push("/"); // home으로 url 바로 이동
+
+```
