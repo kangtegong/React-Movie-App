@@ -319,3 +319,7 @@ Search Container - logics
  - searchbyTerm : get api data based on terms
 
  > issue : search api not working
+
+ ### 12. Create Detail Routes
+
+ `<Route path="/movie/:id" component={Detail} />`
