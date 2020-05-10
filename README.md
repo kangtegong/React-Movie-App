@@ -309,3 +309,13 @@ componenet_directory/
     }
   }
 ```
+
+### 11. Search Container
+
+Search Container - logics
+
+ - type form -> enter -> handleSubmit()
+ - handleSubmit : if Term not empty -> searchbyTerm()
+ - searchbyTerm : get api data based on terms
+
+ > issue : search api not working
