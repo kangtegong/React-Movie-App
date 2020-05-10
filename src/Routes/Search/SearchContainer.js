@@ -1,10 +1,10 @@
 
 import React from "react";
 import SearchPresenter from "./SearchPresenter";
-import { moviesApi, tvApi } from "../../api";
+import { moviesApi, tvApi } from "../../Api";
 
 export default class extends React.Component {
-    // requrires interactivity
+  // requrires interactivity
   state = {
     // search both movie and tv
     movieResults: null,
@@ -55,7 +55,7 @@ export default class extends React.Component {
     } finally {
       this.setState({loading: false});
     }
-  }
+  };
 
   render() {
     const { movieResults, tvResults, searchTerm, loading, error } = this.state;
@@ -69,5 +69,5 @@ export default class extends React.Component {
         handleSubmit={this.handleSubmit}
       />
     );
-  }
+  };
 }

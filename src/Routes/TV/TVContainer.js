@@ -1,6 +1,6 @@
 import React from "react";
 import TVPresenter from "./TVPresenter";
-import {tvApi} from "../../api";
+import {tvApi} from "../../Api";
 export default class extends React.Component {
     // derived from api
 
