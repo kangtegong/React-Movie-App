@@ -320,11 +320,11 @@ Search Container - logics
 
  > issue : search api not working
 
- ### 12. Create Detail Routes
+## 12. Create Detail Routes
 
  `<Route path="/movie/:id" component={Detail} />`
 
-### 13-1. DetailContainer
+## 13-1. DetailContainer
 
 `src/Compoenet/Header.js`를 꾸밀 때는 `withRouter`를 이욯애서 현재의 위치를 알려주었다. 하지만
 이런 작업들을 Detail에 해 줄 필요는 없다. 왜냐하면 디폴트로 react-router가 모든 정보를 Route에게 주기 때문이다.
@@ -376,4 +376,21 @@ const parsedId = parseInt(id);
 if (isNaN(parsedId)) {
   return push("/"); // home으로 url 바로 이동
 
+```
+
+## 13-2. Detail Container
+
+- `this.isMovie = pathname.includes("/movie/");` : url을 검사하여 "/movie"가 포함되어있는지 여부 체크
+- 만일 영화라면 movieDetail에 id값 넣어 호출, 영화가 아니라면 showDetail에 id값 넣어 호출
+
+```
+    let result = null;
+    try{
+      if (this.isMovie) {
+        const request = await moviesApi.movieDetail(parsedId);
+        result = request.data;
+      } else {
+        const request = await tvApi.showDetail(parsedId);
+        result = request.data;
+      }
 ```
