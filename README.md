@@ -396,3 +396,7 @@ if (isNaN(parsedId)) {
         result = request.data;
       }
 ```
+
+## 14. Presenter Structure
+
+- Proptypes : https://reactjs.org/docs/typechecking-with-proptypes.html
