@@ -400,3 +400,84 @@ if (isNaN(parsedId)) {
 ## 14. Presenter Structure
 
 - Proptypes : https://reactjs.org/docs/typechecking-with-proptypes.html
+
+- create section (e.g. title, upcoming movie, popular moviews...)
+- `/src/Components/Section.js`
+
+```
+const Section = ({title, children}) // children == reserved react prop
+
+// copy-paste
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
+};
+```
+
+
+15. HomePresenter and Section Components
+
+```
+<Container>
+  <Title></Title>
+  <Grid>
+    <Container>
+      <Section>nowPlaying</Section>
+      <Section>Upcoming</Section>
+      <Section>Popular</Section>
+    </Container>
+  </Grid>
+</Container>
+```
+
+- Components/Section.js
+
+```
+const Container = styled.div`
+  :not(:last-child) {
+    margin-bottom: 50px;
+  }
+`;
+```
+
+```
+// children: reserved react prop 
+const Section = ({ title, children }) => (
+  <Container>
+    <Title>{title}</Title>
+    <Grid>{children}</Grid>
+  </Container>
+);
+```
+
+- HomePresenter.js
+
+```
+const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
+  loading ? null : (
+    <Container>
+      
+      {nowPlaying && nowPlaying.length > 0 && (
+        <Section title="Now Playing">
+          {nowPlaying.map(movie => movie.title)}
+        </Section>
+      )}
+      
+      {upcoming && upcoming.length > 0 && (
+        <Section title="Upcoming Movies">
+          {upcoming.map(movie => movie.title)}
+        </Section>
+      )}
+      
+      {popular && popular.length > 0 && (
+        <Section title="Popular Movies">
+          {popular.map(movie => movie.title)}
+        </Section>
+      )}
+    
+    </Container>
+  );
+```
