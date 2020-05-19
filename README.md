@@ -520,7 +520,7 @@ const Presenter = ({ topRated, popular, airingToday, loading, error }) =>
 - enter 누르면 제출이 되어 새로고침 되어 state를 잃어버리는 현상 방지
 - 제출이 되는 이벤트 방지하기
 
-## 17-2. SearchPresenter Component : Finish Update Term
+## 17-2. SearchPresenter Component : `Update Term`
 
 ```
   updateTerm = event => {
@@ -537,4 +537,24 @@ const Presenter = ({ topRated, popular, airingToday, loading, error }) =>
     });
   };
 
+```
+
+## 17-3. Applying Loader into SearchPresenter
+
+```
+  <Container>
+    <Form>
+
+    {loading ? (
+      <Loader />
+    ) : (
+      
+      // <> ~ </> : Return two Sections
+      <>
+        "movieResults"
+        "tvResults"
+      </>
+    )}
+  </Container>
+);
 ```
