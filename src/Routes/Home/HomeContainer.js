@@ -1,33 +1,53 @@
 import React from "react";
 import HomePresenter from "./HomePresenter";
+import { moviesApi } from "Api";
 
-export default class extends React.Component{
-    
-    //state : derived from api
-    state = {
-        nowPlaying: null,
-        upComing: null,
-        popular: null,
-        error:null,
-        loading:true,
+export default class extends React.Component {
+  state = {
+    nowPlaying: null,
+    upcoming: null,
+    popular: null,
+    error: null,
+    loading: true
+  };
+
+  async componentDidMount() {
+    try {
+      const {
+        data: { results: nowPlaying }
+      } = await moviesApi.nowPlaying();
+      const {
+        data: { results: upcoming }
+      } = await moviesApi.upcoming();
+      const {
+        data: { results: popular }
+      } = await moviesApi.popular();
+      this.setState({
+        nowPlaying,
+        upcoming,
+        popular
+      });
+    } catch {
+      this.setState({
+        error: "Can't find movie information."
+      });
+    } finally {
+      this.setState({
+        loading: false
+      });
     }
+  }
 
-    // logics 
-
-    // render : render all state to Presenter
-    // no presentation in this component
-    render(){
-        //destructuring
-        const {nowPlaying, upComing, popular, error, loading} = this.state;
-        
-        return (
-            <HomePresenter 
-                nowPlaying={nowPlaying} 
-                upComing={upComing} 
-                popular={popular}
-                error={error}
-                loading={loading}
-            />
-        )  
-    }
+  render() {
+    const { nowPlaying, upcoming, popular, error, loading } = this.state;
+    return (
+      <HomePresenter
+        nowPlaying={nowPlaying}
+        upcoming={upcoming}
+        popular={popular}
+        error={error}
+        loading={loading}
+      />
+    );
+  }
 }

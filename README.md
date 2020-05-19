@@ -539,7 +539,7 @@ const Presenter = ({ topRated, popular, airingToday, loading, error }) =>
 
 ```
 
-## 17-3. Applying Loader into SearchPresenter
+## 17-3. Applying Loader into SearchPresenter.js
 
 ```
   <Container>
