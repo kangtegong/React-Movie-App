@@ -417,8 +417,7 @@ Section.propTypes = {
 };
 ```
 
-
-15. HomePresenter and Section Components
+## 15. HomePresenter and Section Components
 
 ```
 <Container>
@@ -481,3 +480,9 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
     </Container>
   );
 ```
+
+## 16. TVPresenter and Loader Components
+
+- Components/Loader.js
+
+Loader is just another component! (Surrounded by \<Container\>)
