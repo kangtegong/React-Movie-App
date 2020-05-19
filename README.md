@@ -486,3 +486,22 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
 - Components/Loader.js
 
 Loader is just another component! (Surrounded by \<Container\>)
+
+## 16-2. Applying Loader Component into Presenter
+
+`loading ? <Loader> : <Container>Toprated, Popular, Airing</Container>`
+
+```
+const Presenter = ({ topRated, popular, airingToday, loading, error }) =>
+  loading ? (
+    // render this if loading
+    <Loader />
+  ) : (
+    // render these if not loading
+    <Container>
+      toprated
+      popular
+      airing
+    </Container>
+  );
+```
