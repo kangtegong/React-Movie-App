@@ -22,11 +22,26 @@ export default class extends React.Component {
   }*/
 
   handleSubmit = (event) => {
-    event.preventDefault(); // Prevent Submit through Enter -> Do Not submit when press Enter
+    // Prevent Submit empty string through Enter -> Do Not submit when press Enter
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm();
     }
+  };
+
+  updateTerm = event => {
+    // get value (=what we typed in) from event object 
+    const {
+      target: { value }
+    } = event;
+    // console.log(event);
+    // console.log(event.target.value);
+    
+    // Change the state to the value
+    this.setState({
+      searchTerm: value
+    });
   };
 
   searchByTerm = async() => {
@@ -68,6 +83,7 @@ export default class extends React.Component {
         loading={loading}
         error={error}
         handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
   };

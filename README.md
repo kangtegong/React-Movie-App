@@ -506,7 +506,7 @@ const Presenter = ({ topRated, popular, airingToday, loading, error }) =>
   );
 ```
 
-## 17-1. SearchPresenter Component
+## 17-1. SearchPresenter Component : prevent event (submit)
 
 ```
 <Container>
@@ -519,3 +519,22 @@ const Presenter = ({ topRated, popular, airingToday, loading, error }) =>
 - value를 통해 입력값을 javascript로 handle하기
 - enter 누르면 제출이 되어 새로고침 되어 state를 잃어버리는 현상 방지
 - 제출이 되는 이벤트 방지하기
+
+## 17-2. SearchPresenter Component : Finish Update Term
+
+```
+  updateTerm = event => {
+    // get value (=what we typed in) from event object 
+    const {
+      target: { value }
+    } = event;
+    // console.log(event);
+    // console.log(event.target.value);
+    
+    // Change the state to the value
+    this.setState({
+      searchTerm: value
+    });
+  };
+
+```
