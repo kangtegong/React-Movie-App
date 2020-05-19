@@ -558,3 +558,25 @@ const Presenter = ({ topRated, popular, airingToday, loading, error }) =>
   </Container>
 );
 ```
+
+## 18. Error and 404 message
+
+(Error, 404) Message is also a component
+
+error
+```
+{error && <Message color="#e74c3c" text={error} />}
+```
+
+notfound
+```
+{tvResults &&
+ movieResults &&
+ tvResults.length === 0 &&
+ movieResults.length === 0 && (
+  <Message text="Nothing found" color="#95a5a6" />
+ )
+}
+```
+
+- test : `throw Error();`

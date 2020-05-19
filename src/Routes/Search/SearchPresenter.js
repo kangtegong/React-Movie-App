@@ -58,14 +58,17 @@ const SearchPresenter = ({
           ))}
         </Section>
       )}
+        {/* error */}
         {error && <Message color="#e74c3c" text={error} />}
-        
+
+        {/* 404 not found */}        
         {tvResults &&
          movieResults &&
          tvResults.length === 0 &&
          movieResults.length === 0 && (
            <Message text="Nothing found" color="#95a5a6" />
-          )}
+          )
+        }
     </>
   )}
   </Container>

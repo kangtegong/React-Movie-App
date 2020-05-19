@@ -13,7 +13,7 @@ const Text = styled.span`
   color: ${props => props.color};
 `;
 
-// text는 Message에 불러옴 text, color는 Message에서 props를 통해 얻은 color
+//text는 Message에 불러옴 text, color는 Message에서 props를 통해 얻은 color
 const Message = ({ text, color }) => (
   <Container>
     <Text color={color}>{text}</Text>
