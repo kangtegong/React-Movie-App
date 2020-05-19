@@ -21,7 +21,8 @@ export default class extends React.Component {
     this.handleSubmit();
   }*/
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault(); // Prevent Submit through Enter -> Do Not submit when press Enter
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm();
