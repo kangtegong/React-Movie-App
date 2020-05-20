@@ -580,3 +580,27 @@ notfound
 ```
 
 - test : `throw Error();`
+
+## 19. Making Poster Component
+
+```
+// id, imageUrl, title, rating, year, isMovie props로 받고 isMovie는 디폴트로 false 
+const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
+  // 이 컴포넌트 전체에 link 걸어둠 : 클릭시 넘어가는 url 설계
+  <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>  
+    <Container>
+      <ImageContainer>
+        <Image bgUrl={imageUrl} />    // 이미지
+        <Rating>                      // 평점
+          <span role="img" aria-label="rating">
+            ⭐️
+          </span>{" "}
+          {rating}/10
+        </Rating>
+      </ImageContainer>
+      <Title>{title}</Title>          // 제목
+      <Year>{year}</Year>             // 년도
+    </Container>
+  </Link>
+);
+```
