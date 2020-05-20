@@ -604,3 +604,49 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
   </Link>
 );
 ```
+
+## 20. Rendering Post Component
+
+**HomeContainer.js, SearchContainer.js, TVPresenter.js**
+
+- tvapi에서 받아온 poster_path, original_name, vote_average, first_air_date
+- 직접 확인해보기, 어떤 흐름으로 움직이는지 파악
+- 여기서 Component의 key란?
+- 문자열.substring
+
+```
+<Section title="Airing Today">
+  {airingToday.map((show) => (
+    <Poster
+      key={show.id}
+      id={show.id}
+      imageUrl={show.poster_path}
+      title={show.original_name}
+      rating={show.vote_average}
+      year={show.first_air_date.substring(0, 4)}
+    />
+  ))}
+</Section>;
+
+```
+
+- movie api에서 받아온 객체의 id, poster_path, original_title, vote_average, release_date
+- 직접 확인해보기, 어떤 흐름으로 움직이는지 파악
+- 여기서 Component의 key란?
+
+```
+<Section title="Now Playing">
+  {nowPlaying.map((movie) => (
+    <Poster
+      key={movie.id}
+      id={movie.id}
+      imageUrl={movie.poster_path}
+      title={movie.original_title}
+      rating={movie.vote_average}
+      year={movie.release_date.substring(0, 4)}
+      isMovie={true}
+    />
+  ))}
+</Section>;
+
+```

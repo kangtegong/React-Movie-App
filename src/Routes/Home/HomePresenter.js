@@ -12,28 +12,51 @@ const Container = styled.div`
 
 const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
   loading ? (
-    // render this if loading
     <Loader />
   ) : (
     <Container>
       {nowPlaying && nowPlaying.length > 0 && (
         <Section title="Now Playing">
           {nowPlaying.map(movie => (
-             <Poster />
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title={movie.original_title}
+              rating={movie.vote_average}
+              year={movie.release_date.substring(0, 4)}
+              isMovie={true}
+            />
           ))}
         </Section>
       )}
       {upcoming && upcoming.length > 0 && (
         <Section title="Upcoming Movies">
           {upcoming.map(movie => (
-             <Poster />
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title={movie.original_title}
+              rating={movie.vote_average}
+              year={movie.release_date.substring(0, 4)}
+              isMovie={true}
+            />
           ))}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title="Popular Movies">
           {popular.map(movie => (
-             <Poster />
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title={movie.original_title}
+              rating={movie.vote_average}
+              year={movie.release_date.substring(0, 4)}
+              isMovie={true}
+            />
           ))}
         </Section>
       )}
