@@ -683,3 +683,24 @@ const ImageContainer = styled.div`
   }
 `;
 ```
+
+## 21-2. Add Default Image & Trim Title length
+
+- /src/assets/NoPoster.jpg
+
+if url exists bgUrl={ImageUrl} or require("../assets/noPosterSmall.png")
+
+```
+<Image
+  bgUrl={
+    imageUrl
+      ? `https://image.tmdb.org/t/p/w300${imageUrl}`
+      : require("../assets/noPosterSmall.png")
+  }
+/>;
+```
+> requrie() ??
+
+```
+<Title>{title.length > 18 ? `${title.substring(0, 18)}...` : title}</Title>;
+```

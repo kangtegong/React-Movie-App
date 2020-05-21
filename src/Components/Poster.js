@@ -8,8 +8,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.div`
-  background-image: url(${props =>
-    `https://image.tmdb.org/t/p/w300${props.bgUrl}`});
+  background-image: url(${props => props.bgUrl});
   height: 180px;
   backgound-size: cover;
   border-radious: 4px;
@@ -48,7 +47,13 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
   <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>  {/* 클릭시 넘어가는 detail url */}
     <Container>
       <ImageContainer>
-        <Image bgUrl={imageUrl} />
+      <Image
+          bgUrl={
+            imageUrl
+              ? `https://image.tmdb.org/t/p/w300${imageUrl}`
+              : require("../assets/NoImage.png")
+          }
+        />
         <Rating>
           <span role="img" aria-label="rating">
             ⭐️
@@ -56,7 +61,9 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
           {rating}/10
         </Rating>
       </ImageContainer>
-      <Title>{title}</Title>
+      <Title>
+        {title.length > 18 ? `${title.substring(0, 18)}...` : title}
+      </Title>
       <Year>{year}</Year>
     </Container>
   </Link>
