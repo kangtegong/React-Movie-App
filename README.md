@@ -650,3 +650,36 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
 </Section>;
 
 ```
+
+## 21. Styling Poster Component
+
+- order of styled component : (ReferenceError: Cannot access 'Component' before initialization)
+
+- Image
+
+```
+const Image = styled.div`
+  background-image: url(${props =>
+    `https://image.tmdb.org/t/p/w300${props.bgUrl}`});
+  transition: opacity 0.1s ease-in-out;
+`;
+```
+
+- ImageContainer
+
+> opacity, hide&hover
+
+```
+const ImageContainer = styled.div`
+  margin-bottom: 5px;
+  position: relative;
+  &:hover{
+    ${Image}{
+      opacity: 0.3
+    }
+    ${Rating}{
+      opacity: 1
+    }
+  }
+`;
+```
