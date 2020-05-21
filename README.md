@@ -745,3 +745,15 @@ const Backdrop = styled.div`
   />
 </Content>;
 ```
+
+## 23-3. DetailPresenter - Add Item
+
+- overview
+- Structure : Data, Title, ItemContainer, Item, Divider, Overview
+- TVName by API vs TVName by API
+
+```
+<Title>
+  {result.original_title ? result.original_title : result.original_name}
+</Title>;
+```
