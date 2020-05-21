@@ -725,3 +725,23 @@ const Backdrop = styled.div`
   z-index: 0;
 `;
 ```
+
+- z-index
+
+## 22-2. DetailPresenter - Add Cover Image
+
+> CSS Hell gate..
+
+- without `width: 100%` & `height: 100%` ?
+
+```
+<Content>
+  <Cover
+    bgImage={
+      result.poster_path
+        ? `https://image.tmdb.org/t/p/original${result.poster_path}`
+        : require("../../assets/NoImage.png")
+    }
+  />
+</Content>;
+```
