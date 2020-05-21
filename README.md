@@ -704,3 +704,24 @@ if url exists bgUrl={ImageUrl} or require("../assets/noPosterSmall.png")
 ```
 <Title>{title.length > 18 ? `${title.substring(0, 18)}...` : title}</Title>;
 ```
+
+## 22. DetailPresenter - Add backdrop image
+
+- give backdrop image as props to style component
+
+```
+<Backdrop
+  bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+/>;
+```
+
+```
+const Backdrop = styled.div`
+  ...
+  background-image: url(${props => props.bgImage});
+  background-size: cover;
+  filter: blur(3px);
+  opacity: 0.5;
+  z-index: 0;
+`;
+```
